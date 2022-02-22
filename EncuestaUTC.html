@@ -1,0 +1,171 @@
+<?php
+include('conexion.php');
+?>
+<?php
+		if (isset($_POST['registrar']))
+		{
+			
+				mysqli_query($cnx, "INSERT into registro_encuesta values 
+				( '$_POST[fecha]',
+				'$_POST[personal]',
+				'$_POST[genero]',
+				'$_POST[nombre]',
+				'$_POST[carrera]',
+				'$_POST[id]',
+				'$_POST[edad]',
+				'$_POST[contacto]',
+				'$_POST[sintomas]',
+				'$_POST[comentario]')");	
+			}
+		
+		?>
+<!-- CREAR REGISTRO -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<title>Encuesta UTC</title> <link rel="icon" type="image/png" href="images/UTC.jfif" />
+<link rel="icon" type="image/png" href="/images/Icono2.png" />
+</head>
+<body background="images/E.jpg">
+    <form action="" method="post">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<div class="container">
+    <center>
+<font size=30 face="Arial Black" color="#04880d">Encuesta de acceso UTC</font>  </center>
+<!-- Grupo de grillas 1 -->
+<div class="container">
+<div class="row">
+
+<div class="col-lg-4"  style="background-color: rgba(255,255,255,0.0); // En este caso sería color de fondo blanco con 50% de transparencia.">
+
+
+<div class="form-group"> <!-- Area -->
+<font size=3 face="Arial" color="white">Fecha</font>
+    <label for="fecha_id" class="control-label"></label>
+    <input type="text" class="form-control" id="fecha" name="fecha" placeholder="DD/MM/AA">
+    </div>    
+    </div>
+
+
+<div class="col-lg-4"  style="background-color: rgba(255,255,255,0.0)">
+
+
+    <font size=3 face="Arial" color="white">Personal</font>
+    <label for="exampleFormControlSelect1"></label>
+    <select class="form-control" id="personal" name="personal">
+    <option>Alumno</option>
+    <option>Docente</option>
+    <option>Servicio medico</option>
+    <option>Administrativo</option>
+    </select>
+    </div>
+	
+<div class="col-lg-4"  style="background-color:  rgba(255,255,255,0.0)">
+
+    <font size=3 face="Arial" color="white">Genero</font>
+    <label for="exampleFormControlSelect1"></label>
+    <select class="form-control" id="genero" name="genero">
+    <option>----Elige----</option>
+    <option>Masculino</option>
+    <option>Femenino</option>
+    </select>
+    </div>
+    </div>
+    <br> </br>
+      <!-- Grupo de grillas 2 -->
+<div class="container">
+<div class="row">
+<div class="col-lg-2"  style="background-color:rgba(255,255,255,0.0);">  
+    </div>
+
+<div class="col-lg-8"  style="background-color:rgba(255,255,255,0.0)">
+    <form>
+    <div class="form-group"> <!-- Nombre -->
+    <font size=3 face="Arial" color="white">
+    <label for="nombre_id" class="control-label">Nombre</label>
+    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre completo">
+    </div> 
+    
+    <div class="form-group"> <!-- Area -->
+    <label for="carrera_id" class="control-label">Carrera</label>
+    <input type="text" class="form-control" id="carrera" name="carrera" placeholder="Escribe tu carrera">
+    </div> 
+
+    
+    
+<div class="form-group"> <!-- Empresa -->
+     <label for="id_id" class="control-label">ID</label>
+     <input type="text" class="form-control" id="id" name="id" placeholder="Numero de empleado o matricula">
+     </div>  
+
+     
+     <div class="form-group"> <!-- Empresa -->
+     <label for="edad_id" class="control-label">Edad</label>
+     <input type="text" class="form-control" id="edad" name="edad" placeholder="Edad">
+     </div>  
+
+     
+<font size=3 face="Arial" color="white">¿Ha tenido contacto cercano con alguien diagnosticado con COVID-19?</font>
+     <label for="exampleFormControlSelect1"></label>
+     <select class="form-control" id="contacto" name="contacto">
+     <option>----Elige----</option>
+     <option>SI</option>
+     <option>NO</option>
+     </select>    
+     <br>                 
+                            
+     
+<font size=3 face="Arial" color="white">Sintomas</font>
+    <label for="exampleFormControlSelect1"></label>
+    <select class="form-control" id="sintomas" name="sintomas">
+    <option>----Elige los sintomas----</option>
+    <option>Ninguno</option>
+    <option>Cansancio</option>
+    <option>Tos seca</option>
+    <option>Fiebre</option>
+    <option>Dificultado para respirar</option>
+    <option>Dificultad para moverse</option>
+
+    <option>Fiebre, tos seca, Cansancio</option>
+    <option>Fiebre, Diarrea, Dolor de garganta</option>
+    <option>Dolor de cabeza, perdida de olfato y gusto, Cansancio</option>
+    <option>Dolor o presion en el pecho</option>
+    </select>
+    <br>
+    <font size=3 face="Arial" color="white">Realize un comentario en caso de ser necesario</font>
+  	<textarea class="form-control" rows="3" placeholder="Comentarios por departamento medico" id="comentario" name="comentario"></textarea>
+    <br>
+
+       
+   <center>
+<div class="form-group"> <!-- Submit Button -->
+   <center> <input type="submit" class="btn btn-success" name="registrar" id="registrar" value="Registrar Datos y    	generar PDF!" /></center>
+   </center>
+   </div>     
+   </center>
+   </form>
+   </form>
+   </div>
+   </font>
+      
+<div class="col-lg-2"   style="background-color: rgba(255,255,255,0.0)">        
+   </div>
+   </div>
+<!-- Grupo de grillas 3 -->
+<div class="row">
+<div class="col-lg-3" style="background-color: rgba(255,255,255,0.0); // En este caso sería color de fondo blanco con 50% de transparencia.">
+    </div>
+
+<div class="col-lg-6"  style="background-color: rgba(255,255,255,0.0)">
+    </div>
+    </font>
+    
+<div class="col-lg-3"  style="background-color:  rgba(255,255,255,0.0)">
+    </div>
+    <br>
+
+<form>
+</body>
